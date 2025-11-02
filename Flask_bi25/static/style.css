@@ -1,0 +1,7 @@
+.navbar-nav .nav-link:hover {
+    background-color: #d4edda; /* #e3f2fd  Light blue background */
+    border-radius: 4px;        /* Optional: rounded corners */
+    transition: background-color 0.3s ease;
+}
+
+/* #f8d7da for light red, #d4edda for light green, #fff3cd for light yellow */

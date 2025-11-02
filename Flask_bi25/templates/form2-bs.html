@@ -1,0 +1,43 @@
+{% extends "base_menu.html" %}
+{% block title %}form1{% endblock %}
+
+{% block content %}
+  <h4>Attendance register</h4>
+  <p class="important">
+    Welcome to the attendance register - Flask app.
+  </p>
+
+  <hr>
+
+  <h2>Bootstrap Form</h2>
+  <p>This version is styled using Bootstrap 5 classes (e.g., <code>form-group</code>, <code>form-control</code>, <code>btn</code>), which are loaded from the base template.</p>
+  
+  <form action="#" method="post">
+    <fieldset>
+        <h5>Wprowadż swoje dane</h5>
+        
+        <div class="mb-3 col-md-6">
+          <label for="imie_bootstrap" class="form-label">Imię</label>
+          <input type="text" class="form-control" id="imie_bs" name="imie" placeholder="np. Jan" required>
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="nazwisko_bootstrap" class="form-label">Nazwisko</label>
+          <input type="text" class="form-control" id="nazwisko_bs" name="nazwisko" placeholder="np. Kowalski" required>
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label for="album_bootstrap" class="form-label">Numer albumu</label>
+            <input type="number" class="form-control" id="album_bs" name="numer_albumu" placeholder="np. 12345" required>
+        </div>
+
+        <div class="mb-3 col-md-6">
+            <label for="uwagi_bootstrap" class="form-label">Uwagi (max 100 znaków)</label>
+            <textarea class="form-control" id="uwagi_bs" name="uwagi" rows="3" maxlength="100"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </fieldset>
+  </form>
+
+{% endblock %}
