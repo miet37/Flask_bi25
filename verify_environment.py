@@ -124,11 +124,15 @@ def check_imports():
         print("✓ Flask application imports successfully")
         print("✓ Database models import successfully")
         
-        # Check app config
-        is_default_key = (app.config.get('SECRET_KEY', '') == 'mpRec20813')
-        print(f"✓ App secret key is set")
-        if is_default_key:
-            print(f"  ⚠️  WARNING: Using default secret key! Change for production.")
+        # Check app config - check if it's still using a common default value
+        # Common defaults that should be changed in production
+        default_keys = ['dev', 'development', 'secret', 'change-me', 'mpRec20813']
+        current_key = app.config.get('SECRET_KEY', '')
+        is_default = current_key in default_keys
+        
+        print(f"✓ App secret key is configured")
+        if is_default:
+            print(f"  ⚠️  WARNING: Using a default/common secret key! Change for production.")
         print(f"✓ Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")
         
         return True

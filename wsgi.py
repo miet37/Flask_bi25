@@ -2,9 +2,10 @@
 import sys
 import os
 
-# Add your project directory to the sys.path
-# Replace YOUR_USERNAME with your actual PythonAnywhere username
-project_home = '/home/YOUR_USERNAME/Flask_bi25'
+# ⚠️ IMPORTANT: Replace REPLACE_WITH_YOUR_USERNAME with your actual PythonAnywhere username ⚠️
+# Example: If your username is 'john_doe', change the line below to:
+# project_home = '/home/john_doe/Flask_bi25'
+project_home = '/home/REPLACE_WITH_YOUR_USERNAME/Flask_bi25'
 if project_home not in sys.path:
     sys.path = [project_home] + sys.path
 

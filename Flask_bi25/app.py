@@ -339,7 +339,7 @@ def get_plot():
 @app.get('/mpl_stat_plot') 
 def single_converter(): 
 	# Generate and save the matplotlib plot 
-	plot_path = get_plot() 
+	get_plot() 
 
 	return render_template('matplotlib-plot1.html')
 
