@@ -35,8 +35,9 @@ Thumbs.db
 
 # Uploads and temporary files
 Flask_bi25/static/media/*
-Flask_bi25/static/data/*.csv
-Flask_bi25/static/data/*.json
+Flask_bi25/static/data/form1_data.csv
+Flask_bi25/static/data/form1_data.json
+Flask_bi25/static/data/upload_temp.csv
 Flask_bi25/static/images/plot.png
 
 # Keep directory structure but ignore contents
