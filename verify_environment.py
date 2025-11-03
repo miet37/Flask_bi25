@@ -85,7 +85,7 @@ def check_database():
         os.chdir(app_dir)
         
         # Import and test
-        from Flask_bi25.app import app, db
+        from app import app, db
         
         with app.app_context():
             # Try to create tables
@@ -118,14 +118,17 @@ def check_imports():
         os.chdir(app_dir)
         
         # Try importing the app
-        from Flask_bi25.app import app, db, Attendance
-        from Flask_bi25.model import Student
+        from app import app, db, Attendance
+        from model import Student
         
         print("✓ Flask application imports successfully")
         print("✓ Database models import successfully")
         
         # Check app config
-        print(f"✓ App secret key is set: {'mpRec20813' != app.config['SECRET_KEY']}")
+        is_default_key = (app.config.get('SECRET_KEY', '') == 'mpRec20813')
+        print(f"✓ App secret key is set")
+        if is_default_key:
+            print(f"  ⚠️  WARNING: Using default secret key! Change for production.")
         print(f"✓ Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")
         
         return True

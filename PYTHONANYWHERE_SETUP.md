@@ -54,9 +54,14 @@ project_home = '/home/YOUR_USERNAME/Flask_bi25'
 if project_home not in sys.path:
     sys.path = [project_home] + sys.path
 
-os.chdir(os.path.join(project_home, 'Flask_bi25'))
+# Change to Flask_bi25 subdirectory and add to path
+flask_app_dir = os.path.join(project_home, 'Flask_bi25')
+os.chdir(flask_app_dir)
 
-from Flask_bi25.app import app as application
+if flask_app_dir not in sys.path:
+    sys.path.insert(0, flask_app_dir)
+
+from app import app as application
 ```
 
 **Remember to replace `YOUR_USERNAME`!**

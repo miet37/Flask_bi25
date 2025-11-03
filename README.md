@@ -58,16 +58,20 @@ python3 -c "from app import app, db; app.app_context().push(); db.create_all()"
 import sys
 import os
 
-# Add your project directory to the sys.path
+# IMPORTANT: Replace YOUR_USERNAME with your PythonAnywhere username
 project_home = '/home/YOUR_USERNAME/Flask_bi25'
+
 if project_home not in sys.path:
     sys.path = [project_home] + sys.path
 
-# Change to the Flask_bi25 subdirectory where app.py is located
-os.chdir(os.path.join(project_home, 'Flask_bi25'))
+# Change to Flask_bi25 subdirectory and add to path
+flask_app_dir = os.path.join(project_home, 'Flask_bi25')
+os.chdir(flask_app_dir)
 
-# Import Flask app
-from Flask_bi25.app import app as application
+if flask_app_dir not in sys.path:
+    sys.path.insert(0, flask_app_dir)
+
+from app import app as application
 ```
 
 **Important:** Replace `YOUR_USERNAME` with your actual PythonAnywhere username.
