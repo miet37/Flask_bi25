@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+test_env/
+
+# Flask
+instance/*.db
+instance/*.sqlite
+*.db
+*.sqlite
+flask_session/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads and temporary files
+Flask_bi25/static/media/*
+Flask_bi25/static/data/*.csv
+Flask_bi25/static/data/*.json
+Flask_bi25/static/images/plot.png
+
+# Keep directory structure but ignore contents
+!Flask_bi25/static/media/.gitkeep
+!Flask_bi25/static/data/.gitkeep
+!Flask_bi25/static/images/.gitkeep
+
+# Logs
+*.log
+
+# PythonAnywhere specific
+.bash_history
+.bash_logout
+.bashrc
+.profile

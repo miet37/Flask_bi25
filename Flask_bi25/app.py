@@ -4,9 +4,8 @@ import os
 import json
 import random
 import time
-import pandas as pd
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import stream_with_context, Response
@@ -313,7 +312,7 @@ def chart_data() -> Response:
 # -----------------
 
 
-# Generate a scatter plot and returns the figure 
+# Generate a scatter plot and save it
 def get_plot(): 
 	data = { 
 		'a': np.arange(50), 
@@ -323,21 +322,26 @@ def get_plot():
 	data['b'] = data['a'] + 10 * np.random.randn(50) 
 	data['d'] = np.abs(data['d']) * 100
 
-	plt.scatter('a', 'b', c='c', s='d', data=data) 
+	plt.figure(figsize=(10, 6))
+	plt.scatter(data['a'], data['b'], c=data['c'], s=data['d']) 
 	plt.xlabel('X label') 
 	plt.ylabel('Y label') 
-	return plt 
+	plt.colorbar(label='Color scale')
+	
+	# Save the figure
+	plot_path = os.path.join('static', 'images', 'plot.png')
+	os.makedirs(os.path.join('static', 'images'), exist_ok=True)
+	plt.savefig(plot_path)
+	plt.close()
+	return plot_path
 
 # Root URL 
 @app.get('/mpl_stat_plot') 
 def single_converter(): 
-	# Get the matplotlib plot 
-	plot = get_plot() 
+	# Generate and save the matplotlib plot 
+	plot_path = get_plot() 
 
-	# Save the figure in the static directory 
-	plot.savefig(os.path.join('static', 'images', 'plot.png')) 
-
-	return render_template('matplotlib-plot1.html') 
+	return render_template('matplotlib-plot1.html')
 
 
 # ---------------------------------
